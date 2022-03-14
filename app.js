@@ -7,14 +7,16 @@ Problem  -  ১. বাজেট ক্যালকুলেটর
 ২. Watch : 260
 ৩.Coffee: 50
 */
-function budgetCal(p1, p2, p3) {
+function budgetCal(computer, watch, coffee) {
   let total;
   if (
-    typeof p1 === "number" &&
-    typeof p2 === "number" &&
-    typeof p3 === "number"
+    typeof computer === "number" &&
+    typeof watch === "number" &&
+    typeof coffee === "number"
   ) {
-    total = p1 + p2 + p3;
+    total = `Your Total Price is : ${
+      1000 * computer + 260 * watch + 50 * coffee
+    }`;
   } else {
     total = "It's not a number";
   }
@@ -57,21 +59,20 @@ var products = [
   },
 ];
 
-let y = "";
-for (let i = 0; i < products.length; i++) {
-  if (i.title === "Laptop") {
-    y = "Okay";
-  } else {
-    y = "Not";
+function findProduct(productName) {
+  let found;
+  for (let i = 0; i < products.length; i++) {
+    if (
+      products[i].title.toLocaleLowerCase() === productName.toLocaleLowerCase()
+    ) {
+      found = `Id : ${products[i].id} \nTitle : ${products[i].title} \nPrice : ${products[i].price}`;
+      break;
+    } else {
+      found = "Product Not Found";
+    }
   }
+  return found;
 }
-console.log(y);
-// let isProduct = products.find((n) => n.title === "Laptop");
-
-//console.log(
-//`Id : ${products[i].id} \nTitle : ${products[i].title} \nPrice : ${products[i].price}`
-//);
-// console.log(isProduct);
 
 /*
 Problem - ৩. হিডেন কোটিপতি ক্যালকুলেটর 
